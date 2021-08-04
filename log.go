@@ -12,7 +12,7 @@ func init() {
 	log.SetLevel(log.InfoLevel)
 	writer1 := os.Stdout
 	var writer2 *os.File
-	logFile := "log.txt"
+	logFile := "./log.txt"
 	if _, err := os.Stat(logFile); err == nil {
 		writer2, _ = os.OpenFile(logFile, os.O_WRONLY|os.O_CREATE, 0755)
 	} else {
