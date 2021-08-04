@@ -15,7 +15,7 @@ func init() {
 	//userEnv = UserEnv{"12976104",
 	//	"f72e28ba%2C1641476752%2Cb4a2c%2A71",
 	//	"6f453f9726aaf71b65bd9a50cfea85a1"}
-	DedeUserID := os.Getenv("DedeUserID")
+	DedeUserID := os.Getenv("DEDEUSERID")
 	SESSDATA := os.Getenv("SESSDATA")
 	BILI_JCT := os.Getenv("BILI_JCT")
 	DingdingToken := os.Getenv("DINGDING")
