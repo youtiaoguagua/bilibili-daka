@@ -4,6 +4,7 @@ stages:
   - stage:
       - git-checkout:
           alias: git-checkout
+          description: 代码仓库克隆
           version: "1.0"
           params:
             branch: ((gittar.branch))
@@ -11,3 +12,13 @@ stages:
             password: ((gittar.password))
             uri: ((gittar.repo))
             username: ((gittar.username))
+  - stage:
+      - golang:
+          alias: golang
+          version: "1.0"
+          params:
+            command: go run main.go
+            context: /
+          resources:
+            cpu: 0.2
+            mem: 1024
