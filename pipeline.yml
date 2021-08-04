@@ -17,6 +17,7 @@ stages:
           alias: custom-script
           version: "1.0"
           commands:
+            - cd ${git-checkout}
             - go run main.go
           resources:
             cpu: 0.2
