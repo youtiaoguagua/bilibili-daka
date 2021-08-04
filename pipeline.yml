@@ -14,6 +14,15 @@ stages:
             username: ((gittar.username))
   - stage:
       - custom-script:
+          alias: "123"
+          version: "1.0"
+          commands:
+            - env
+          resources:
+            cpu: 0.1
+            mem: 1024
+  - stage:
+      - custom-script:
           alias: custom-script
           version: "1.0"
           commands:
@@ -21,4 +30,4 @@ stages:
             - go run main.go
           resources:
             cpu: 0.2
-            mem: 2048
+            mem: 1024
