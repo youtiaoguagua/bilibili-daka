@@ -14,16 +14,8 @@ stages:
             username: ((gittar.username))
   - stage:
       - custom-script:
-          alias: "123"
-          version: "1.0"
-          commands:
-            - env
-          resources:
-            cpu: 0.1
-            mem: 1024
-  - stage:
-      - custom-script:
           alias: custom-script
+          description: 运行自定义命令
           version: "1.0"
           commands:
             - cd ${git-checkout}
