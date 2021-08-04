@@ -17,12 +17,12 @@ func init() {
 	//	"6f453f9726aaf71b65bd9a50cfea85a1"}
 	DedeUserID := os.Getenv("DedeUserID")
 	SESSDATA := os.Getenv("SESSDATA")
-	Bili_jct := os.Getenv("Bili_jct")
-	DingdingToken := os.Getenv("dingding")
-	if DedeUserID == "" || SESSDATA == "" || Bili_jct == "" {
+	BILI_JCT := os.Getenv("BILI_JCT")
+	DingdingToken := os.Getenv("DINGDING")
+	if DedeUserID == "" || SESSDATA == "" || BILI_JCT == "" {
 		panic("env is not valid!")
 	}
-	userEnv = UserEnv{DedeUserID, SESSDATA, Bili_jct, DingdingToken}
+	userEnv = UserEnv{DedeUserID, SESSDATA, BILI_JCT, DingdingToken}
 }
 
 func GetUserEnv() UserEnv {
