@@ -13,12 +13,11 @@ stages:
             uri: ((gittar.repo))
             username: ((gittar.username))
   - stage:
-      - golang:
-          alias: golang
+      - custom-script:
+          alias: custom-script
           version: "1.0"
-          params:
-            command: go run main.go
-            context: ${git-checkout}
+          commands:
+            - go run main.go
           resources:
             cpu: 0.2
-            mem: 1024
+            mem: 2048
