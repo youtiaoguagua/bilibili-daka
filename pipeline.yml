@@ -18,7 +18,7 @@ stages:
           version: "1.0"
           params:
             command: go run main.go
-            context: /
+            context: ${git-checkout}
           resources:
             cpu: 0.2
             mem: 1024
