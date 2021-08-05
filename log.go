@@ -14,8 +14,9 @@ func init() {
 	log.SetLevel(log.InfoLevel)
 	writer1 := os.Stdout
 	var writer2 *os.File
-	logFile := "/tmp/log.txt"
-	writer2, err := os.OpenFile(logFile, os.O_RDWR|os.O_CREATE, 0777)
+	logFile := "./log.txt"
+	writer2, err := os.OpenFile(logFile, os.O_RDWR|os.O_TRUNC|os.O_CREATE, 0777)
+	writer2.Seek(0, 0)
 	if err != nil {
 		panic(err.Error())
 	}
