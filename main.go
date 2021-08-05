@@ -38,7 +38,7 @@ func main() {
 }
 
 func pushMessage() {
-	file, err := os.Open("/tmp/log.txt")
+	file, err := os.OpenFile("/tmp/log.txt", os.O_RDONLY, 0777)
 	if err != nil {
 		panic(err)
 	}
