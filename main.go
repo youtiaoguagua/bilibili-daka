@@ -7,7 +7,6 @@ import (
 	"github.com/sirupsen/logrus"
 	"io/ioutil"
 	"os"
-	"strconv"
 	"time"
 )
 
@@ -22,10 +21,10 @@ func main() {
 	task := []task.Task{
 		task.UserCheckTask{},
 		task.CoinLogsTask{},
-		task.VideoWatchTask{},
-		task.MangaSignTask{},
-		task.LiveCheckinTask{},
-		task.CoinAddTask{},
+		//task.VideoWatchTask{},
+		//task.MangaSignTask{},
+		//task.LiveCheckinTask{},
+		//task.CoinAddTask{},
 	}
 	for _, v := range task {
 		logrus.Infof("------%v开始------", v.GetName())
@@ -62,10 +61,11 @@ func calculateUpgradeDays() {
 
 	levelInfo := userInfo.Data.LevelInfo
 	var needExp int
-	if "--" == levelInfo.NextExp {
+	if "--" == levelInfo.NextExp.String() {
 		needExp = levelInfo.CurrentExp
 	} else {
-		needExp, _ = strconv.Atoi(levelInfo.NextExp)
+		i, _ := levelInfo.NextExp.Int64()
+		needExp = int(i)
 	}
 	needExp -= levelInfo.CurrentExp
 
