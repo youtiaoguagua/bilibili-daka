@@ -12,7 +12,7 @@ type UserCheckTask struct {
 
 func (u UserCheckTask) Run() {
 	userInfo := entity.UserInfo{}
-	result, _ := request.GetClient().R().Get(api.LOGIN)
+	result, _ := request.GetClient().R().SetResult(&userInfo).Get(api.LOGIN)
 
 	logrus.WithFields(logrus.Fields{
 		"user check login res :": userInfo,

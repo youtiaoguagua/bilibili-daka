@@ -12,10 +12,16 @@ import (
 var followUpVideoList = make([]string, 0)
 var rankVideoList = make([]string, 0)
 
-func init() {
+var intit = false
+
+func NewGetVideoId() {
+	if intit {
+		return
+	}
 	followUpVideoList = queryDynamicNew()
 	rankVideoList = regionRanking()
 	videoUpdate("14602398")
+	intit = true
 }
 
 func videoUpdate(mid string) {

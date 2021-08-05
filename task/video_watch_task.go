@@ -14,6 +14,7 @@ type VideoWatchTask struct {
 }
 
 func (v VideoWatchTask) Run() {
+	NewGetVideoId()
 	rewardInfo, err := getDailyTaskStatus()
 	if err != nil {
 		return
