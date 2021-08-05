@@ -14,7 +14,7 @@ func init() {
 	log.SetLevel(log.InfoLevel)
 	writer1 := os.Stdout
 	var writer2 *os.File
-	logFile := "./log.txt"
+	logFile := "/tmp/log.txt"
 	writer2, _ = os.OpenFile(logFile, os.O_RDWR|os.O_CREATE, 0777)
 	log.SetOutput(io.MultiWriter(writer1, writer2))
 }
