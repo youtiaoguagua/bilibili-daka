@@ -1,0 +1,6 @@
+bilibili签到开始！
+------登录检查开始------
+登录请求结果： {"code":-412,"message":"请求被拦截","ttl":1,"data":null}
+Cookies可能失效了,请仔细检查配置中的DEDEUSERID SESSDATA BILI_JCT三项的值是否正确、过期
+Cookies可能失效了!
+钉钉推送成功！
