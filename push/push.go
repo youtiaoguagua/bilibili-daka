@@ -6,6 +6,7 @@ import (
 	"bilibili/env"
 	"bilibili/request"
 	"github.com/sirupsen/logrus"
+	"github.com/tidwall/gjson"
 )
 
 type Push interface {
@@ -25,5 +26,10 @@ func (d DingDingPush) DoPush(info entity.MetaInfo, content string) {
 	if err != nil {
 		panic(err.Error())
 	}
-	logrus.Info(string(post.Body()))
+	code := gjson.Get(string(post.Body()), "errcode").Num
+	if code == 0 {
+		logrus.Info("钉钉推送成功！")
+	} else {
+		logrus.Infof("钉钉推送失败！请求结果：%v", string(post.Body()))
+	}
 }

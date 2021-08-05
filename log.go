@@ -1,23 +1,37 @@
 package main
 
 import (
+	"bytes"
+	"fmt"
 	log "github.com/sirupsen/logrus"
 	"io"
 	"os"
 )
 
 func init() {
-	log.SetFormatter(&log.JSONFormatter{})
+	log.SetFormatter(&Log{})
 	log.SetOutput(os.Stdout)
 	log.SetLevel(log.InfoLevel)
 	writer1 := os.Stdout
 	var writer2 *os.File
 	logFile := "./log.txt"
-	if _, err := os.Stat(logFile); err == nil {
-		writer2, _ = os.OpenFile(logFile, os.O_WRONLY|os.O_CREATE, 0755)
-	} else {
-		writer2, _ = os.Create(logFile)
-	}
+	writer2, _ = os.OpenFile(logFile, os.O_RDWR|os.O_CREATE, 0777)
 	log.SetOutput(io.MultiWriter(writer1, writer2))
+}
 
+type Log struct {
+}
+
+func (l Log) Format(entry *log.Entry) ([]byte, error) {
+	var b *bytes.Buffer
+	if entry.Buffer != nil {
+		b = entry.Buffer
+	} else {
+		b = &bytes.Buffer{}
+	}
+
+	newLog := fmt.Sprintf("%s\n", entry.Message)
+
+	b.WriteString(newLog)
+	return b.Bytes(), nil
 }

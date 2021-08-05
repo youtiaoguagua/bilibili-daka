@@ -1,6 +1,6 @@
-{"level":"info","msg":"bilibili签到开始！","time":"2021-08-05T05:51:54+08:00"}
-{"level":"info","msg":"------登录检查开始------","time":"2021-08-05T05:51:54+08:00"}
-{"level":"error","msg":"request info is {\"code\":-412,\"message\":\"请求被拦截\",\"ttl\":1,\"data\":null}","time":"2021-08-05T05:51:54+08:00"}
-{"level":"info","msg":"Cookies可能失效了,请仔细检查配置中的DEDEUSERID SESSDATA BILI_JCT三项的值是否正确、过期","time":"2021-08-05T05:51:54+08:00"}
-{"level":"error","msg":"cookies is not valid!","time":"2021-08-05T05:51:54+08:00"}
-{"level":"info","msg":"{\"errcode\":0,\"errmsg\":\"ok\"}","time":"2021-08-05T05:51:54+08:00"}
+bilibili签到开始！
+------登录检查开始------
+登录请求结果： {"code":-412,"message":"请求被拦截","ttl":1,"data":null}
+Cookies可能失效了,请仔细检查配置中的DEDEUSERID SESSDATA BILI_JCT三项的值是否正确、过期
+Cookies可能失效了!
+钉钉推送成功！
