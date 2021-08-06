@@ -21,10 +21,10 @@ func main() {
 	task := []task.Task{
 		task.UserCheckTask{},
 		task.CoinLogsTask{},
-		//task.VideoWatchTask{},
-		//task.MangaSignTask{},
-		//task.LiveCheckinTask{},
-		//task.CoinAddTask{},
+		task.VideoWatchTask{},
+		task.MangaSignTask{},
+		task.LiveCheckinTask{},
+		task.CoinAddTask{},
 	}
 	for _, v := range task {
 		logrus.Infof("------%v开始------", v.GetName())
