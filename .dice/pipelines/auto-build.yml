@@ -1,5 +1,8 @@
 version: "1.1"
-"on": {}
+on:
+  push:
+    branches:
+      - master
 stages:
   - stage:
       - git-checkout:
@@ -18,10 +21,18 @@ stages:
           version: "1.0"
           commands:
             - cd ${git-checkout}
-            - touch 123.txt
-            - git add -A
-            - git commit -am "auto build"
-            - ' git push -u origin master'
+            - go build
+          resources:
+            cpu: 0.2
+            mem: 2048
+  - stage:
+      - custom-script:
+          alias: custom-script
+          version: "1.0"
+          commands:
+            - cd ${git-checkout}
+            - git add -A & git commit -am "auto build"
+            - git push -u origin master
           resources:
             cpu: 0.2
             mem: 2048
