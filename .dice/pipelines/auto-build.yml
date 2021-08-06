@@ -17,7 +17,7 @@ stages:
             username: ((gittar.username))
   - stage:
       - custom-script:
-          alias: custom-script
+          alias: auto-build
           version: "1.0"
           commands:
             - cd ${git-checkout}
@@ -27,7 +27,7 @@ stages:
             mem: 2048
   - stage:
       - custom-script:
-          alias: custom-script
+          alias: git-push
           version: "1.0"
           commands:
             - cd ${git-checkout}
