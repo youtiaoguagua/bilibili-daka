@@ -19,5 +19,8 @@ stages:
           commands:
             - cd ${git-checkout}
             - touch 123.txt
-            - git commit -m ""
+            - git commit -am ""
             - ' git push -u origin master'
+          resources:
+            cpu: 0.2
+            mem: 2048
