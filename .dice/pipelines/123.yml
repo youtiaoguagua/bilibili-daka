@@ -20,7 +20,7 @@ stages:
             - cd ${git-checkout}
             - touch 123.txt
             - git add -A
-            - git commit -am ""
+            - git commit -am "auto build"
             - ' git push -u origin master'
           resources:
             cpu: 0.2
