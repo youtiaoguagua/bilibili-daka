@@ -16,8 +16,8 @@ stages:
             uri: ((gittar.repo))
             username: ((gittar.username))
   - stage:
-      - custom-script:
-          alias: auto-build
+      - auto-build-script:
+          alias: auto-build-script
           version: "1.0"
           commands:
             - cd ${git-checkout}
@@ -26,8 +26,8 @@ stages:
             cpu: 0.2
             mem: 2048
   - stage:
-      - custom-script:
-          alias: git-push
+      - git-push-script:
+          alias: git-push-script
           version: "1.0"
           commands:
             - cd ${git-checkout}
