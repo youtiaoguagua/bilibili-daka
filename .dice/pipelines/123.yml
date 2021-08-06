@@ -2,8 +2,19 @@ version: "1.1"
 "on": {}
 stages:
   - stage:
+      - git-checkout:
+          alias: git-checkout
+          version: "1.0"
+          params:
+            branch: ((gittar.branch))
+            depth: 1
+            password: ((gittar.password))
+            uri: ((gittar.repo))
+            username: ((gittar.username))
+  - stage:
       - custom-script:
           alias: custom-script
           version: "1.0"
           commands:
-            - env
+            - cd ${git-checkout}
+            - ' git push -u origin master'
