@@ -1,0 +1,28 @@
+version: "1.1"
+"on": {}
+stages:
+  - stage:
+      - git-checkout:
+          alias: git-checkout
+          description: 代码仓库克隆
+          version: "1.0"
+          params:
+            branch: ((gittar.branch))
+            depth: 1
+            password: ((gittar.password))
+            uri: ((gittar.repo))
+            username: ((gittar.username))
+  - stage:
+      - custom-script:
+          alias: custom-script
+          description: 运行自定义命令
+          version: "1.0"
+          commands:
+            - cd ${git-checkout}
+            - touch 123.txt
+            - git add -A
+            - git commit -am "auto build"
+            - ' git push -u origin master'
+          resources:
+            cpu: 0.2
+            mem: 2048
