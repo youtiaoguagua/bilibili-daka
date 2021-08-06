@@ -4,6 +4,7 @@ stages:
   - stage:
       - git-checkout:
           alias: git-checkout
+          description: 代码仓库克隆
           version: "1.0"
           params:
             branch: ((gittar.branch))
@@ -17,4 +18,6 @@ stages:
           version: "1.0"
           commands:
             - cd ${git-checkout}
+            - touch 123.txt
+            - git commit -m ""
             - ' git push -u origin master'
